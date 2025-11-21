@@ -13,62 +13,61 @@ interface IProduct {
 
 const productsToPreLoad: IProduct[] = [
   {
-    name: "iPhone 11",
-    price: 699,
+    name: "iPhone 17 Pro",
+    price: 6449000,
     description:
-      "Experience power and elegance with the iPhone 11: capture stunning moments with its dual-camera system, enjoy exceptional performance, and immerse yourself in a brilliant Liquid Retina display. Discover a world of possibilities in the palm of your hand!",
+      "iPhone 17 Pro. El iPhone más poderoso hasta ahora. Espectacular pantalla de 6,3 pulgadas, diseño unibody de aluminio, chip A19 Pro, cámaras traseras de 48 MP y una extraordinaria duración de la batería.",
     image:
-      "https://www.apple.com/v/iphone-11/a/images/meta/og__f2j3dwkzna2u.png",
+      "https://mac-center.com/cdn/shop/files/IMG-18067820_m_jpeg_1.jpg?v=1757469508",
     categoryId: 1,
     stock: 10,
   },
   {
-    name: "MacBook Air",
-    price: 999,
+    name: "MacBook Air de 13 pulgadas M4",
+    price: 6099000,
     description:
-      "Embrace efficiency and sophistication with the MacBook Air: lightweight design meets powerful performance, stunning Retina display brings your work to life, and all-day battery life keeps you productive wherever you go. Elevate your computing experience with the MacBook Air.",
-    image:
-      "https://www.apple.com/v/macbook-air/a/images/meta/og__d5k62k8b4qka.png",
+      "Con chip M4 te da toda la velocidad que necesitas para trabajar y jugar. Con Apple Intelligence, su brillante pantalla Liquid Retina, hasta 18 horas de batería2 y su diseño increíblemente delgado, liviano y resistente, está listo para seguirte adonde vayas y enfrentarse a lo que sea",
+    image:"https://mac-center.com/cdn/shop/files/IMG-16751976_966015af-38bd-4467-9d6d-0e41cd9ddea2.jpg?v=1741187883",
     categoryId: 2,
     stock: 10,
   },
   {
-    name: "iPad Pro",
-    price: 799,
+    name: "iPad Pro de 13 pulgadas M5",
+    price: 7499000,
     description:
-      "Unleash your creativity and productivity with the iPad Pro: powerful performance, stunning Liquid Retina display, and all-day battery life make the iPad Pro the perfect tool for work and play. Transform your ideas into reality with the iPad Pro.",
+      "Diseñado para Apple Intelligence. Gracias a la potencia del chip M5 de Apple, el iPad Pro ofrece un rendimiento descomunal que facilita la productividad y te permite enfrentar flujos de trabajo avanzados con IA. Con una espectacular pantalla Ultra Retina XDR, conexiones Wi-Fi 7 y 5G ultrarrápidas, Neural Accelerators para cargas de trabajo con IA y un nuevo diseño de iPadOS, olvídate de los límites y descubre todo lo que puedes hacer con el iPad Pro. Combínalo con el Apple Pencil Pro y el Magic Keyboard para el iPad Pro, y multiplica tus posibilidades a la hora de trabajar y crear.",
     image:
-      "https://www.apple.com/v/ipad-pro/a/images/meta/og__d8m6x7smkntm.png",
+      "https://mac-center.com/cdn/shop/files/IMG-18277594_m_jpeg_1_e63afb9b-720e-4a93-9a87-9d6b5e6e7e80.jpg?v=1760537420",
     categoryId: 3,
     stock: 10,
   },
   {
-    name: "Apple Watch Series 6",
-    price: 399,
+    name: "Apple Watch Ultra 3",
+    price: 4399000,
     description:
-      "Stay connected and healthy with the Apple Watch Series 6: track your workouts, monitor your health, and stay in touch with the people and information you care about most. Experience the future of health and wellness with the Apple Watch Series 6.",
+      "El compañero perfecto para el deporte y la aventura está diseñado para durar, con una robusta caja de titanio y una pantalla de cristal de zafiro resistente. Tiene una clasificación de resistencia al agua de 100 metros, ideal para nadar y practicar buceo recreativo y deportes acuáticos de alta velocidad.",
     image:
-      "https://www.apple.com/v/apple-watch-series-6/a/images/meta/og__c1zv8c8n7q06.png",
+      "https://mac-center.com/cdn/shop/files/IMG-18072531_m_jpeg_1.jpg?v=1757526344",
     categoryId: 4,
     stock: 10,
   },
   {
-    name: "AirPods Pro",
-    price: 249,
+    name: "AirPods Pro 3",
+    price: 1279000,
     description:
-      "Immerse yourself in sound with the AirPods Pro: active noise cancellation, transparency mode, and customizable fit make the AirPods Pro the perfect companion for music, calls, and everything in between. Elevate your audio experience with the AirPods Pro.",
+      "Hasta 2 veces más Cancelación Activa de Ruido que los AirPods Pro 2. Ahora con detección de la frecuencia cardiaca, Traducción en Vivo, mayor duración de la batería y avances en salud auditiva. Rediseñados para un ajuste más seguro.",
     image:
-      "https://www.apple.com/v/airpods-pro/a/images/meta/og__c1zv8c8n7q06.png",
+      "https://mac-center.com/cdn/shop/files/IMG-18067428_m_jpeg_1.jpg?v=1757469538",
     categoryId: 5,
     stock: 10,
   },
   {
-    name: "HomePod mini",
-    price: 99,
+    name: "Apple TV 4K (3rd generation)",
+    price: 899000,
     description:
-      "Elevate your home audio experience with the HomePod mini: immersive sound, intelligent assistant, and smart home hub make the HomePod mini the perfect addition to your home. Enjoy a world of music, news, and more with the HomePod mini.",
+      "te ofrece una impresionante calidad de imagen en 4K Dolby Vision y HDR10+. Vive una experiencia de sonido envolvente, como en el cine, gracias al Audio Espacial y Dolby Atmos. Mantente al borde de tu asiento con lo último en series, películas, deportes y TV en vivo de tus apps de streaming favoritas. Usa FaceTime para comunicarte con tus seres queridos en la pantalla más grande de tu casa. Y disfruta Apple TV+, Fotos, Apple Fitness+, Apple Music y Apple Arcade. Todo gracias a un puerto Ethernet para transferir datos a alta velocidad y redes Thread que permiten mejor conectividad con tu smart home.",
     image:
-      "https://www.apple.com/v/homepod-mini/a/images/meta/og__d5k62k8b4qka.png",
+      "https://mac-center.com/cdn/shop/files/IMG-7864480_56ea7eda-01a8-4592-aee7-af3e81bac5a9.jpg?v=1723752350",
     categoryId: 6,
     stock: 10,
   },
