@@ -16,7 +16,7 @@ const productsToPreLoad: IProduct[] = [
     name: "iPhone 17 Pro",
     price: 6449000,
     description:
-      "iPhone 17 Pro. El iPhone más poderoso hasta ahora. Espectacular pantalla de 6,3 pulgadas, diseño unibody de aluminio, chip A19 Pro, cámaras traseras de 48 MP y una extraordinaria duración de la batería.",
+      "El iPhone más poderoso hasta ahora. Espectacular pantalla de 6,3 pulgadas, diseño unibody de aluminio, chip A19 Pro, cámaras traseras de 48 MP y una extraordinaria duración de la batería.",
     image:
       "https://mac-center.com/cdn/shop/files/IMG-18067820_m_jpeg_1.jpg?v=1757469508",
     categoryId: 1,

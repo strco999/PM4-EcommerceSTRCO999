@@ -8,15 +8,16 @@ interface CardProps {
 
 function Card ({ product }: CardProps) {
     return (
-         <div className="W-[350px] h-[600px] border-2 ">
+         <div className="w-[300px] h-[900px] border-2 ">
                <Image
                src={product.image} 
                alt={`product image ${product.name}`}
-               width={350} 
+               width={250} 
                height={300}
+                className="w-80 h-80 object-cover "
                />           
                <h3>{product.name}</h3>
-               <p className="overflow">{product.description}</p>
+               <p >{product.description}</p>
                <p>{product.price}</p>
              </div>
 
