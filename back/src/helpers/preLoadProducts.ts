@@ -27,7 +27,8 @@ const productsToPreLoad: IProduct[] = [
     price: 6099000,
     description:
       "Con chip M4 te da toda la velocidad que necesitas para trabajar y jugar. Con Apple Intelligence, su brillante pantalla Liquid Retina, hasta 18 horas de batería2 y su diseño increíblemente delgado, liviano y resistente, está listo para seguirte adonde vayas y enfrentarse a lo que sea",
-    image:"https://mac-center.com/cdn/shop/files/IMG-16751976_966015af-38bd-4467-9d6d-0e41cd9ddea2.jpg?v=1741187883",
+    image:
+      "https://mac-center.com/cdn/shop/files/IMG-16751976_966015af-38bd-4467-9d6d-0e41cd9ddea2.jpg?v=1741187883",
     categoryId: 2,
     stock: 10,
   },
@@ -35,7 +36,7 @@ const productsToPreLoad: IProduct[] = [
     name: "iPad Pro de 13 pulgadas M5",
     price: 7499000,
     description:
-      "Diseñado para Apple Intelligence. Gracias a la potencia del chip M5 de Apple, el iPad Pro ofrece un rendimiento descomunal que facilita la productividad y te permite enfrentar flujos de trabajo avanzados con IA. Con una espectacular pantalla Ultra Retina XDR, conexiones Wi-Fi 7 y 5G ultrarrápidas, Neural Accelerators para cargas de trabajo con IA y un nuevo diseño de iPadOS, olvídate de los límites y descubre todo lo que puedes hacer con el iPad Pro. Combínalo con el Apple Pencil Pro y el Magic Keyboard para el iPad Pro, y multiplica tus posibilidades a la hora de trabajar y crear.",
+      "Diseñado para Apple Intelligence. Gracias a la potencia del chip M5 de Apple, el iPad Pro ofrece un rendimiento descomunal que facilita la productividad y te permite enfrentar flujos de trabajo avanzados con IA. Con una espectacular pantalla Ultra Retina XDR, conexiones Wi-Fi 7 y 5G ultrarrápidas.",
     image:
       "https://mac-center.com/cdn/shop/files/IMG-18277594_m_jpeg_1_e63afb9b-720e-4a93-9a87-9d6b5e6e7e80.jpg?v=1760537420",
     categoryId: 3,
