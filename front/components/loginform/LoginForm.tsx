@@ -66,26 +66,29 @@
 "use client";
 import { useFormik } from "formik";
 import { loginInitialValues, loginValidationSchema } from "./loginSchema";
+import { loginUser } from "@/services/auth.services";
 
 function LoginForm() {
   const formik = useFormik({
     initialValues: loginInitialValues,
     validationSchema: loginValidationSchema,
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values, { resetForm }) => {
+      const responseLogin = await loginUser(values);
+      alert("Ingreso Exitoso");
+      resetForm();
     },
   });
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-negroapple">
       <form
-        className="w-full max-w-md bg-white/90 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col gap-6"
+        className=" bg-white/10 w-full max-w-md rounded-xl shadow-lg p-6 sm:p-8 flex flex-col gap-6"
         onSubmit={formik.handleSubmit}
       >
         <div className="flex flex-col">
           <label
             htmlFor="email"
-            className="mb-1 text-sm font-medium text-gray-800"
+            className="mb-1 text-sm font-medium text-amber-50"
           >
             Email
           </label>
@@ -105,7 +108,7 @@ function LoginForm() {
         <div className="flex flex-col">
           <label
             htmlFor="password"
-            className="mb-1 text-sm font-medium text-gray-800"
+            className="mb-1 text-sm font-medium text-amber-50"
           >
             Contraseña
           </label>
@@ -136,4 +139,3 @@ function LoginForm() {
 }
 
 export default LoginForm;
-

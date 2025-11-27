@@ -28,7 +28,7 @@ export const registerValidationSchema = Yup.object({
   password: Yup.string()
     .min(6, "Minimo 6 Caracteres")
     .required("Campo Requerido."),
-  confirmpassword: Yup.string()
+  confirmPassword: Yup.string()
     .oneOf([Yup.ref("password")], "Las 2 contraseñas deben ser iguales.")
     .required("Campo Requerido."),
   name: Yup.string().required("Este campo es obligatorio"),
@@ -36,6 +36,7 @@ export const registerValidationSchema = Yup.object({
   phone: Yup.string()
     .matches(
       /^(\+57\s?)?(3\d{2}|60[1-8])\d{7}$/,
-      "Ingresa un número de teléfono colombiano válido")
+      "Ingresa un número de teléfono colombiano válido"
+    )
     .required("El teléfono es obligatorio"),
 });
