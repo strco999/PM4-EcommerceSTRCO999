@@ -49,34 +49,34 @@ function Footer() {
     <footer className="w-full bg-black text-white border-t border-neutral-800">
       <div className="w-full mx-auto max-w-7xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <span className="text-sm text-gray-300 sm:text-center">
-          © 2025{" "}
+          Copyright © 2025{" "}
           <Link
             href="https://strco999.com/"
             className="hover:underline font-medium"
           >
             Strco999™
           </Link>
-          . All Rights Reserved.
+          . Todos los derechos reservados.
         </span>
         <ul className="flex flex-wrap items-center gap-4 text-sm font-medium text-gray-400">
           <li>
             <Link href="#" className="hover:underline">
-              About
+              About.
             </Link>
           </li>
           <li>
             <Link href="#" className="hover:underline">
-              Privacy Policy
+              Aviso legal.
             </Link>
           </li>
           <li>
             <Link href="#" className="hover:underline">
-              Licensing
+              Política de privacidad.
             </Link>
           </li>
           <li>
             <Link href="#" className="hover:underline">
-              Contact
+              Colombia.
             </Link>
           </li>
         </ul>

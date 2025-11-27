@@ -77,7 +77,7 @@ function LoginForm() {
   });
 
   return (
-    <div className="w-full h-full flex items-center justify-center bg-gray-500">
+    <div className="w-full h-full flex items-center justify-center bg-negroapple">
       <form
         className="w-full max-w-md bg-white/90 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col gap-6"
         onSubmit={formik.handleSubmit}

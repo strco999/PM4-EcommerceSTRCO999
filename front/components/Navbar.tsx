@@ -24,7 +24,11 @@ import Link from "next/link";
 function Navbar() {
   return (
     <div className="w-full flex justify-between items-center h-16 px-6 bg-black text-white">
-      <section>Image Logo</section>
+      <Link href="/">
+      <section>STRCO999™</section>
+      
+      </Link>
+
       <section>
         <nav>
           <ul className="flex gap-7 text-sm sm:text-base">

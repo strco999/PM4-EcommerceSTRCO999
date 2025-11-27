@@ -42,16 +42,19 @@ async function ProductDetailPage({ params }: ProductDetailPageProps) {
           </div>
 
           {/* Options */}
-          <div className="mt-4 lg:row-span-3 lg:mt-0">
+          <div className="mt-4 lg:row-span-3 lg:mt-0 flex flex-col gap-6">
             <h2 className="sr-only">Product information</h2>
             <p className="text-3xl tracking-tight text-gray-900">
               COP$ {product.price}
             </p>
-          </div>
 
-          <button type="submit" className="bg-azulapple cursor-pointer text-amber-50">
-            Agregar al Carrito
-          </button>
+            <button
+              type="submit"
+              className="bg-azulapple cursor-pointer text-amber-50 rounded-lg px-4 py-2 w-full lg:w-auto"
+            >
+              Agregar al Carrito
+            </button>
+          </div>
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
             {/* Description and details */}

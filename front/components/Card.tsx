@@ -8,7 +8,7 @@ interface CardProps {
 
 function Card({ product }: CardProps) {
   return (
-    <div className="w-[300px] h-[800px] border-2 ">
+    <div className="w-[300px] h-[800px] border ">
       <Image
         src={product.image}
         alt={`product image ${product.name}`}
@@ -19,14 +19,21 @@ function Card({ product }: CardProps) {
       <Link href={`product/${product.id}`}>
         <h3>COP$ {product.price}</h3>
       </Link>
+
       <p className="overflow-">{product.description}</p>
-      <p>COP$ {product.price}</p>
-      <Link
-        href={`product/${product.id}`}
-        className="border border-black bg-amber-500 w-[250px] h-[60px] w-[] "
-      >
-        Ver Producto
-      </Link>
+
+      <p className="flex justify-center items-center">COP$ {product.price}</p>
+
+      <div className="flex justify-center items-center">
+        <Link href={`product/${product.id}`} className="">
+          <button
+            type="submit"
+            className=" flex justify-center items-center bg-azulapple cursor-pointer text-amber-50 rounded-lg px-4 py-2 w-full lg:w-auto"
+          >
+            Comprar
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }

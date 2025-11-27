@@ -19,7 +19,7 @@ export const getProductById = async (id: string) => {
     const AllProducts = await getAllProducts();
     const product = AllProducts.find((product) => product.id === Number(id));
     if (!product) {
-      throw new Error(`No se encontro un producto con el ID: ${id} `);
+      throw new Error(`Producto no encontrado con el ID: ${id} `);
     }
     return product;
   } catch (error) {
