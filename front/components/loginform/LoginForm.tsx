@@ -1,79 +1,18 @@
-// "use client";
-// import { useFormik } from "formik";
-// import { loginInitialValues, loginValidationSchema } from "./loginSchema";
-
-// function LoginForm() {
-//   //1 Valores iniciales
-//   //2 Esquema de validacion => se construye con YUP
-//   //3 onSubmit para saber que hace el formulario al pulsar el boton
-
-//   const formik = useFormik({
-//     initialValues: loginInitialValues,
-//     validationSchema: loginValidationSchema,
-//     onSubmit: (values) => {
-//       console.log(values);
-//     },
-//   });
-
-//   return (
-//     <div className="bg-gray-500 w-screen h-[500px] flex justify-center items-center">
-//       <form
-//         className="flex flex-col w-[1500px] gap-8"
-//         onSubmit={formik.handleSubmit}
-//       >
-//         <div className="flex flex-col">
-//           <label htmlFor="email">Email</label>
-//           <input
-//             className="bg-amber-50 w-100"
-//             id="email"
-//             name="email"
-//             type="email"
-//             value={formik.values.email}
-//             onChange={formik.handleChange}
-//           />
-//           {formik.errors.email && (
-//             <p className="text-amber-50">{formik.errors.email}</p>
-//           )}
-//         </div>
-//         <div className="flex flex-col">
-//           <label htmlFor="">Contraseña</label>
-//           <input
-//             className="bg-amber-50 w-100"
-//             id="password"
-//             name="password"
-//             type="password"
-//             value={formik.values.password}
-//             onChange={formik.handleChange}
-//           />
-//           {formik.errors.password && (
-//             <p className="text-amber-50">{formik.errors.password}</p>
-//           )}
-//         </div>
-//         <button
-//           type="submit"
-//           className="bg-azulapple w-[150] text-cyan-50 border-black cursor-pointer rounded-2xl
-//         "
-//         >
-//           iniciar sesion
-//         </button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default LoginForm;
-
 "use client";
 import { useFormik } from "formik";
 import { loginInitialValues, loginValidationSchema } from "./loginSchema";
 import { loginUser } from "@/services/auth.services";
+import { useAuth } from "@/context/AuthContext";
 
 function LoginForm() {
+  const { setDataUser } = useAuth();
+
   const formik = useFormik({
     initialValues: loginInitialValues,
     validationSchema: loginValidationSchema,
     onSubmit: async (values, { resetForm }) => {
       const responseLogin = await loginUser(values);
+      setDataUser(responseLogin); // ✅
       alert("Ingreso Exitoso");
       resetForm();
     },
