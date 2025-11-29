@@ -44,7 +44,7 @@ async function ProductDetailPage({ params }: ProductDetailPageProps) {
           {/* Options */}
           <div className="mt-4 lg:row-span-3 lg:mt-0 flex flex-col gap-6">
             <h2 className="sr-only">Product information</h2>
-            <p className="text-3xl tracking-tight text-gray-900">
+            <p className="font-bold text-center text-3xl tracking-tight text-gray-900">
               COP$ {product.price}
             </p>
 

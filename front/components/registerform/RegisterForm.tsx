@@ -33,7 +33,7 @@ function RegisterForm() {
         <div className="text-amber-50 flex flex-col">
           <label htmlFor="email">Email</label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded"
+            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
             id="email"
             name="email"
             type="email"
@@ -50,7 +50,7 @@ function RegisterForm() {
         <div className="text-amber-50 flex flex-col">
           <label htmlFor="password">Contraseña</label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded"
+            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
             id="password"
             name="password"
             type="password"
@@ -67,7 +67,7 @@ function RegisterForm() {
         <div className="text-amber-50 flex flex-col">
           <label htmlFor="confirmPassword">Confirmar Contraseña</label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded"
+            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
             id="confirmPassword"
             name="confirmPassword"
             type="password"
@@ -86,7 +86,7 @@ function RegisterForm() {
         <div className="text-amber-50 flex flex-col">
           <label htmlFor="name">Nombre</label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded"
+            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
             id="name"
             name="name"
             type="text"
@@ -100,7 +100,7 @@ function RegisterForm() {
         <div className="text-amber-50 flex flex-col">
           <label htmlFor="address">Dirección</label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded"
+            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
             id="address"
             name="address"
             type="text"
@@ -114,7 +114,7 @@ function RegisterForm() {
         <div className="text-amber-50 flex flex-col">
           <label htmlFor="phone">Teléfono</label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded"
+            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
             id="phone"
             name="phone"
             type="text"

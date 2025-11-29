@@ -3,9 +3,12 @@ import { useFormik } from "formik";
 import { loginInitialValues, loginValidationSchema } from "./loginSchema";
 import { loginUser } from "@/services/auth.services";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+
 
 function LoginForm() {
   const { setDataUser } = useAuth();
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues: loginInitialValues,
@@ -13,6 +16,7 @@ function LoginForm() {
     onSubmit: async (values, { resetForm }) => {
       const responseLogin = await loginUser(values);
       setDataUser(responseLogin); // ✅
+       router.push("/dashboard");
       alert("Ingreso Exitoso");
       resetForm();
     },

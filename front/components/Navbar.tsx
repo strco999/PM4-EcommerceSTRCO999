@@ -1,27 +1,18 @@
-// import Link from "next/link";
-
-// function Navbar() {
-//   return (
-//     <div className="flex justify-evenly items-center h-[50px] bg-black text-white ">
-//       <section>Image Logo</section>
-//       <section>
-//         <nav>
-//           <ul className="flex w-full gap-7">
-//             <Link href="/">Home</Link>
-//             <Link href="/dashboard">Dashboard</Link>
-//             <Link href="/cart">Cart</Link>
-//           </ul>
-//         </nav>
-//       </section>
-//     </div>
-//   );
-// }
-
-// export default Navbar;
-
+"use client";
+import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 function Navbar() {
+  const { dataUser, logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout(); // limpia el contexto / localStorage
+    router.push("/"); // redirige al Home
+    alert("Salida Exitosa"); // mensaje
+  };
+
   return (
     <div className="w-full flex justify-between items-center h-16 px-6 bg-black text-white">
       <Link href="/">
@@ -32,8 +23,27 @@ function Navbar() {
         <nav>
           <ul className="flex gap-7 text-sm sm:text-base">
             <Link href="/">Home</Link>
-            <Link href="/dashboard">Dashboard</Link>
+
+            {dataUser && <Link href="/dashboard">Dashboard</Link>}
             <Link href="/cart">Cart</Link>
+
+            {dataUser ? (
+              <div className="flex gap-4">
+                <p>{dataUser.user.name}</p>
+                <button
+                  className="cursor-pointer hover:underline text-red-600 "
+                  onClick={handleLogout}
+                >
+                  {" "}
+                  Logout{" "}
+                </button>
+              </div>
+            ) : (
+              <div className="flex gap-4">
+                <Link href="/login">Login</Link>
+                <Link href="/register">Registro</Link>
+              </div>
+            )}
           </ul>
         </nav>
       </section>
