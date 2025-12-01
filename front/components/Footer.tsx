@@ -7,10 +7,10 @@ function Footer() {
         <span className="text-sm text-gray-300 sm:text-center">
           Copyright © 2025{" "}
           <Link
-            href="https://strco999.com/"
+            href="https://www.tinastore.com/"
             className="hover:underline font-medium"
           >
-            Strco999™
+            TINA❤️™
           </Link>
           . Todos los derechos reservados.
         </span>

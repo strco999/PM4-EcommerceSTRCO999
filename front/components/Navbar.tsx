@@ -16,7 +16,7 @@ function Navbar() {
   return (
     <div className="w-full flex justify-between items-center h-16 px-6 bg-black text-white">
       <Link href="/">
-        <section>STRCO999™</section>
+        <section>TINA STORE™</section>
       </Link>
 
       <section>

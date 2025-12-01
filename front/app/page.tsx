@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <div className="w-full">
       <main className="flex flex-col items-center justify-start max-w-6xl mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-center mb-2">STRCO999</h1>
+        <h1 className="text-3xl font-bold text-center mb-2">TINA</h1>
         <p className="text-center mb-1">NOVEDADES</p>
         <h3 className="text-center mb-6">ENTREGA INMEDIATA</h3>
 
