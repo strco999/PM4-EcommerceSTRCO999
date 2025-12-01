@@ -107,27 +107,35 @@ interface CartProviderProps {
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<IProduct[]>([]);
+  const [initialized, setInitialized] = useState(false);
   const { dataUser } = useAuth();
 
-  // Guardar carrito en localStorage cuando cambie
-  useEffect(() => {
-    if (cartItems.length > 0) {
-      localStorage.setItem("cart", JSON.stringify(cartItems));
-    } else {
-      // opcional: limpiar localStorage cuando no haya items
-      localStorage.removeItem("cart");
-    }
-  }, [cartItems]);
-
-  // Leer carrito al montar
+  // 1️⃣ Leer carrito al montar (solo una vez)
   useEffect(() => {
     if (typeof window !== "undefined" && window.localStorage) {
       const cartdata = localStorage.getItem("cart");
       if (cartdata) {
-        setCartItems(JSON.parse(cartdata));
+        try {
+          const parsed = JSON.parse(cartdata) as IProduct[];
+          setCartItems(parsed);
+        } catch (error) {
+          console.error("Error parsing cart from localStorage", error);
+        }
       }
     }
+    setInitialized(true);
   }, []);
+
+  // 2️⃣ Guardar carrito en localStorage cuando cambie (solo después de inicializar)
+  useEffect(() => {
+    if (!initialized) return;
+
+    if (cartItems.length > 0) {
+      localStorage.setItem("cart", JSON.stringify(cartItems));
+    } else {
+      localStorage.removeItem("cart");
+    }
+  }, [cartItems, initialized]);
 
   const addToCart = (product: IProduct) => {
     if (!dataUser) {
@@ -139,6 +147,8 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     if (productExist) {
       alert("Ya tienes este item en el carro de compras");
       return;
+    } else {
+      alert("Producto agregado al carrito 🛒");
     }
 
     setCartItems((prev) => [...prev, product]);

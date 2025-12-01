@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { useAuth } from "@/context/AuthContext";
+import { createOrder } from "@/services/orders.services";
 
 function CartPage() {
   const {
@@ -14,6 +16,16 @@ function CartPage() {
     getTotal,
     removeFromCart,
   } = useCart();
+
+  const { dataUser } = useAuth();
+
+  const handleCheckout = async () => {
+    if (!dataUser?.token) {
+      return;
+    }
+    await createOrder(getIdItems(), dataUser.token);
+    clearCart();
+  };
 
   const itemCount = getItemCount();
   const total = getTotal();
@@ -130,7 +142,7 @@ function CartPage() {
 
               <button
                 className="bg-azulapple text-amber-50 w-full mt-2 py-2 rounded-2xl text-sm sm:text-base border border-black cursor-pointer hover:bg-azulapple/90 transition"
-                onClick={() => alert("Checkout no implementado aún")}
+                onClick={handleCheckout}
               >
                 Ir a pagar
               </button>

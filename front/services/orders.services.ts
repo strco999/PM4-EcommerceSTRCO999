@@ -1,6 +1,6 @@
 const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
-export const createOrder = async (idProducts: number[], token: string) => {
+export const createOrder = async (products: number[], token: string) => {
   try {
     const res = await fetch(`${APIURL}/orders`, {
       method: "POST",
@@ -8,7 +8,7 @@ export const createOrder = async (idProducts: number[], token: string) => {
         "Content-Type": "application/json",
         Authorization: token,
       },
-      body: JSON.stringify({ idProducts }),
+      body: JSON.stringify({ products }),
     });
     const orders = await res.json();
     return orders;
