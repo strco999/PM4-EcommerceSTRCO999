@@ -1,3 +1,4 @@
+import AddToCartButton from "@/components/AddToCartButton";
 import { IProduct } from "@/interfaces/product.interface";
 import { getProductById } from "@/services/products.services";
 import { notFound } from "next/navigation";
@@ -47,14 +48,8 @@ async function ProductDetailPage({ params }: ProductDetailPageProps) {
             <p className="font-bold text-center text-3xl tracking-tight text-gray-900">
               COP$ {product.price}
             </p>
-
-            <button
-              type="submit"
-              className="bg-azulapple cursor-pointer text-amber-50 rounded-lg px-4 py-2 w-full lg:w-auto"
-            >
-              Agregar al Carrito
-            </button>
           </div>
+          <AddToCartButton product={product} />
 
           <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pt-6 lg:pr-8 lg:pb-16">
             {/* Description and details */}
