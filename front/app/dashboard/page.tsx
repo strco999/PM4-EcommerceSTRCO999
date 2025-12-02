@@ -163,21 +163,26 @@ import { useAuth } from "@/context/AuthContext";
 import OrderList from "@/components/OrderList";
 
 export default function DashboardPage() {
-  const { dataUser } = useAuth();
+  const { dataUser, isLoadingUser } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!dataUser) {
+    if (!isLoadingUser && !dataUser) {
       router.push("/login");
     }
-  }, [dataUser, router]);
+  }, [dataUser, isLoadingUser, router]);
 
-  if (!dataUser) {
+  if (isLoadingUser) {
     return (
       <div className="w-full min-h-screen flex justify-center items-center bg-white">
-        <p className="text-black">Redirigiendo...</p>
+        <p className="text-black">Cargando tu sesión...</p>
       </div>
     );
+  }
+
+  if (!dataUser) {
+    // ya se encargará el useEffect de redirigir
+    return null;
   }
 
   const { user } = dataUser;
@@ -191,7 +196,7 @@ export default function DashboardPage() {
             {user.name?.charAt(0).toUpperCase()}
           </div>
           <div className="flex flex-col">
-            <h1 className="text-2xl font-bold text-black">Mi Cuenta</h1>
+            <h1 className="text-2xl font-bold text-black">Mi Perfil</h1>
             <p className="text-gray-600 text-sm">{user.email}</p>
           </div>
         </div>

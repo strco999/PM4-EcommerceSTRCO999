@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Order } from "@/interfaces/orders.interface";
 
-export default function OrderList() {
+function OrderList() {
   const { dataUser } = useAuth();
 
   const [orders, setOrders] = useState<Order[]>([]);
@@ -53,7 +53,7 @@ export default function OrderList() {
         </div>
       ) : orders && orders.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left">
+          <table className="w-full text-sm text-center">
             <thead className="bg-gray-100">
               <tr>
                 <th className="px-4 py-2">ID</th>
@@ -64,7 +64,7 @@ export default function OrderList() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {orders.map((order) => (
-                <tr key={order.id} className="hover:bg-gray-700">
+                <tr key={order.id} className="text-center hover:bg-gray-400">
                   <td>{order.id}</td>
                   <td>{order.products?.length || 0} productos</td>
                   <td className="px-4 py-3">
@@ -88,3 +88,5 @@ export default function OrderList() {
     </div>
   );
 }
+
+export default OrderList;

@@ -10,7 +10,7 @@ function Footer() {
             href="https://www.tinastore.com/"
             className="hover:underline font-medium"
           >
-            TINA❤️™
+            STRCO999™
           </Link>
           . Todos los derechos reservados.
         </span>

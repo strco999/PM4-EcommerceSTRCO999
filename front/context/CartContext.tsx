@@ -1,80 +1,3 @@
-// "use client";
-
-// import { IProduct } from "@/interfaces/product.interface";
-// import { createContext, useEffect, useState } from "react";
-// import { useAuth } from "./AuthContext";
-
-// interface CartContextProps {
-//   cartItems: IProduct[];
-//   addToCart: (product: IProduct) => void;
-//   removeFromCart: (productId: number) => void;
-//   clearCart: () => void;
-//   getIdItems: () => number[];
-//   getTotal: () => void;
-//   getItemCount: () => number;
-// }
-
-// const CartContext = createContext<CartContextProps>({
-//   cartItems: [],
-//   addToCart: () => {},
-//   removeFromCart: () => {},
-//   clearCart: () => {},
-//   getIdItems: () => [],
-//   getTotal: () => {},
-//   getItemCount: () => 0,
-// });
-
-// interface CartProviderProps {
-//   children: React.ReactNode;
-// }
-
-// export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-//   const [cartItems, setCartItems] = useState<IProduct[]>([]);
-//   const { dataUser } = useAuth();
-
-//   useEffect(() => {
-//     if (cartItems.length > 0) {
-//       localStorage.setItem("cart", JSON.stringify(cartItems));
-//     }
-//   }, [cartItems]);
-
-//   // Leer sesión al montar
-//   useEffect(() => {
-//     if (typeof window !== "undefined" && window.localStorage) {
-//       const cartdata = localStorage.getItem("cart");
-//       if (cartdata) {
-//         setCartItems(JSON.parse(cartdata));
-//       }
-//     }
-//   }, []);
-
-//   const addToCart = (product: IProduct) => {
-//     if (!dataUser) {
-//       alert("Debes iniciar sesion");
-//       return;
-//     }
-//     const productExist = cartItems.some((item) => item.id === product.id);
-//     if (productExist) {
-//       alert("Ya tienes este item en el carro de compras");
-//       return;
-//     }
-//     setCartItems([...cartItems, product]);
-//   };
-
-//   const removeFromCart = (productId: number) => {
-//     const filterItems = cartItems.filter((item) => item.id !== productId);
-//     setCartItems(filterItems);
-
-//     setCartItems((prevItems) =>
-//       prevItems.filter((item) => item.id !== productId)
-//     );
-//   };
-
-//   const getTotal = () => {
-//     return cartItems.reduce((total, item) => total + item.price, 0);
-//   };
-// };
-
 "use client";
 
 import { IProduct } from "@/interfaces/product.interface";
@@ -136,6 +59,19 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       localStorage.removeItem("cart");
     }
   }, [cartItems, initialized]);
+
+  // 3️⃣ Vaciar carrito al hacer logout (cuando dataUser pasa a null)
+  useEffect(() => {
+    if (!initialized) return;
+
+    // Si NO hay usuario logueado, vaciamos carrito y localStorage
+    if (!dataUser) {
+      setCartItems([]);
+      if (typeof window !== "undefined" && window.localStorage) {
+        localStorage.removeItem("cart");
+      }
+    }
+  }, [dataUser, initialized]);
 
   const addToCart = (product: IProduct) => {
     if (!dataUser) {

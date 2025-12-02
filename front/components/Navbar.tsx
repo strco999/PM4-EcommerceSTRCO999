@@ -16,7 +16,7 @@ function Navbar() {
   return (
     <div className="w-full flex justify-between items-center h-16 px-6 bg-black text-white">
       <Link href="/">
-        <section>TINA STORE™</section>
+        <section>STRCO999™</section>
       </Link>
 
       <section>
@@ -41,7 +41,7 @@ function Navbar() {
             ) : (
               <div className="flex gap-4">
                 <Link href="/login">Login</Link>
-                <Link href="/register">Registro</Link>
+                <Link href="/register">Register</Link>
               </div>
             )}
           </ul>
