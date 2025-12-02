@@ -8,7 +8,7 @@ interface CardProps {
 
 function Card({ product }: CardProps) {
   return (
-    <div className="w-[300px] h-[800px] flex flex-col items-center justify-start gap-4 text-center">
+    <div className=" w-[300px] h-[800px] flex flex-col items-center justify-start gap-4 text-center">
       <Image
         src={product.image}
         alt={`product image ${product.name}`}
