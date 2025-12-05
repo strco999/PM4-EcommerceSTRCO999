@@ -64,7 +64,7 @@ function OrderList() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {orders.map((order) => (
-                <tr key={order.id} className="text-center hover:bg-gray-400">
+                <tr key={order.id} className="text-center">
                   <td>{order.id}</td>
                   <td>{order.products?.length || 0} productos</td>
                   <td className="px-4 py-3">

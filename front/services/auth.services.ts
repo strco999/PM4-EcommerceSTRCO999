@@ -15,7 +15,7 @@ export const registerUser = async (userData: IRegisterFormValues) => {
     if (responseRegister.ok) {
       return responseRegister.json();
     } else {
-      alert("Registro Fallido");
+      alert("Registro Fallido❌");
       throw new Error("Registro Fallido");
     }
   } catch (error) {
@@ -35,7 +35,7 @@ export const loginUser = async (userData: ILoginFormValues) => {
     if (responseRegister.ok) {
       return responseRegister.json();
     } else {
-      alert("Logueo Fallido");
+      alert("Logueo Fallido❌");
       throw new Error("Logueo Fallido");
     }
   } catch (error) {

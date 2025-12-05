@@ -1,10 +1,11 @@
 "use client";
+
 import { useFormik } from "formik";
 import { loginInitialValues, loginValidationSchema } from "./loginSchema";
 import { loginUser } from "@/services/auth.services";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
-
+import { showToast } from "nextjs-toast-notify";
 
 function LoginForm() {
   const { setDataUser } = useAuth();
@@ -15,28 +16,38 @@ function LoginForm() {
     validationSchema: loginValidationSchema,
     onSubmit: async (values, { resetForm }) => {
       const responseLogin = await loginUser(values);
-      setDataUser(responseLogin); // ✅
-       router.push("/dashboard");
-      alert("Ingreso Exitoso");
+      setDataUser(responseLogin);
+      showToast.info("¡El Login se realizó con éxito!", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
+      // alert("Ingreso Exitoso✅");
+
+      router.push("/dashboard");
+
       resetForm();
     },
   });
 
   return (
-    <div className="w-full h-full flex items-center justify-center bg-negroapple">
+    <div className="w-full h-full flex items-center justify-center bg-white">
       <form
-        className=" bg-white/10 w-full max-w-md rounded-xl shadow-lg p-6 sm:p-8 flex flex-col gap-6"
+        className="shadow-lg w-full max-w-md rounded-xl p-6 sm:p-8 flex flex-col gap-6"
         onSubmit={formik.handleSubmit}
       >
         <div className="flex flex-col">
           <label
             htmlFor="email"
-            className="mb-1 text-sm font-medium text-amber-50"
+            className="mb-1 text-sm font-medium text-negroapple"
           >
             Email
           </label>
           <input
-            className="bg-amber-50 w-full px-3 py-2 rounded-md outline-none focus:ring-2 focus:ring-azulapple"
+            className="shadow-lg bg-gray-200 w-full px-3 py-2 rounded-md outline-none focus:ring-2 focus:ring-gray-500"
             id="email"
             name="email"
             type="email"
@@ -51,12 +62,12 @@ function LoginForm() {
         <div className="flex flex-col">
           <label
             htmlFor="password"
-            className="mb-1 text-sm font-medium text-amber-50"
+            className="mb-1 text-sm font-medium text-negroapple "
           >
             Contraseña
           </label>
           <input
-            className="bg-amber-50 w-full px-3 py-2 rounded-md outline-none focus:ring-2 focus:ring-azulapple"
+            className="shadow-lg bg-gray-200 w-full px-3 py-2 rounded-md outline-none focus:ring-2 focus:ring-gray-500"
             id="password"
             name="password"
             type="password"
@@ -72,7 +83,7 @@ function LoginForm() {
 
         <button
           type="submit"
-          className="bg-azulapple text-cyan-50 font-semibold border border-black cursor-pointer rounded-2xl px-4 py-2 mt-2 w-full sm:w-auto self-center hover:bg-azulapple/90 transition"
+          className="bg-azulapple text-white font-semibold border border-white cursor-pointer rounded-2xl px-4 py-2 mt-2 w-full sm:w-auto self-center transition"
         >
           iniciar sesión
         </button>

@@ -24,5 +24,6 @@ export const getProductById = async (id: string) => {
     return product;
   } catch (error) {
     throw new Error(error as string);
+    
   }
 };

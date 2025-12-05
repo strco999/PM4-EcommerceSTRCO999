@@ -6,10 +6,7 @@ function Footer() {
       <div className="w-full mx-auto max-w-7xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <span className="text-sm text-gray-300 sm:text-center">
           Copyright © 2025{" "}
-          <Link
-            href="https://www.tinastore.com/"
-            className="hover:underline font-medium"
-          >
+          <Link href="#" className="hover:underline font-medium">
             STRCO999™
           </Link>
           . Todos los derechos reservados.

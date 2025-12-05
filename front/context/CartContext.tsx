@@ -3,6 +3,8 @@
 import { IProduct } from "@/interfaces/product.interface";
 import { createContext, useEffect, useState, useContext } from "react";
 import { useAuth } from "./AuthContext";
+import { showToast } from "nextjs-toast-notify";
+
 
 interface CartContextProps {
   cartItems: IProduct[];
@@ -75,16 +77,40 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
   const addToCart = (product: IProduct) => {
     if (!dataUser) {
-      alert("Debes iniciar sesion");
+      // alert("Debes iniciar sesion❌");
+      showToast.warning("¡Debes iniciar sesion!", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
       return;
     }
 
     const productExist = cartItems.some((item) => item.id === product.id);
     if (productExist) {
-      alert("Ya tienes este item en el carro de compras");
+      // alert("Ya tienes este item en el carro de compras");
+      showToast.error("¡Ya tienes este item en el carro de compras!", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
       return;
     } else {
-      alert("Producto agregado al carrito 🛒");
+      // alert("Producto agregado al carrito 🛒");
+      showToast.success("¡Producto agregado al carrito! 🛒", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
     }
 
     setCartItems((prev) => [...prev, product]);

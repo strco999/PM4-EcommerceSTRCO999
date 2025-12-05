@@ -48,7 +48,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }, []);
 
-  // Guardar / limpiar sesión cuando cambia dataUser
+  
   useEffect(() => {
     if (dataUser) {
       localStorage.setItem(AUTH_KEY, JSON.stringify(dataUser));

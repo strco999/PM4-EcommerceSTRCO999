@@ -17,23 +17,27 @@ function RegisterForm() {
     onSubmit: async (values, { resetForm }) => {
       const responseRegister = await registerUser(values);
       alert("Usuario Registrado");
-      // router.push("/login");
-
+      router.push("/login");
       resetForm();
     },
   });
 
   return (
-    <div className=" w-full min-h-[500px] flex justify-center items-center">
+    <div className=" w-full min-h-[500px] flex justify-center items-center bg-white">
       <form
         onSubmit={formik.handleSubmit}
-        className="flex flex-col w-full max-w-md items-stretch gap-6 bg-white/10 p-6 rounded-2xl"
+        className="flex flex-col w-full max-w-md items-stretch gap-6  p-6 rounded-2xl shadow-lg"
       >
         {/* Email */}
-        <div className="text-amber-50 flex flex-col">
-          <label htmlFor="email">Email</label>
+        <div className="text-negroapple flex flex-col">
+          <label
+            htmlFor="email"
+            className="mb-1 text-sm font-medium text-negroapple "
+          >
+            Email
+          </label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
+            className="bg-gray-200 w-full px-2 py-1 rounded text-black "
             id="email"
             name="email"
             type="email"
@@ -47,10 +51,15 @@ function RegisterForm() {
         </div>
 
         {/* Password */}
-        <div className="text-amber-50 flex flex-col">
-          <label htmlFor="password">Contraseña</label>
+        <div className="text-negroapple flex flex-col">
+          <label
+            htmlFor="password"
+            className="mb-1 text-sm font-medium text-negroapple "
+          >
+            Contraseña
+          </label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
+            className="bg-gray-200 w-full px-2 py-1 rounded text-black focus:ring-2 focus:ring-gray-500"
             id="password"
             name="password"
             type="password"
@@ -64,10 +73,15 @@ function RegisterForm() {
         </div>
 
         {/* Confirm Password */}
-        <div className="text-amber-50 flex flex-col">
-          <label htmlFor="confirmPassword">Confirmar Contraseña</label>
+        <div className="text-negroapple flex flex-col">
+          <label
+            htmlFor="confirmPassword"
+            className="mb-1 text-sm font-medium text-negroapple "
+          >
+            Confirmar Contraseña
+          </label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
+            className="bg-gray-200 w-full px-2 py-1 rounded text-black focus:ring-2 focus:ring-gray-500"
             id="confirmPassword"
             name="confirmPassword"
             type="password"
@@ -83,10 +97,15 @@ function RegisterForm() {
         </div>
 
         {/* Nombre */}
-        <div className="text-amber-50 flex flex-col">
-          <label htmlFor="name">Nombre</label>
+        <div className="text-negroapple flex flex-col">
+          <label
+            htmlFor="name"
+            className="mb-1 text-sm font-medium text-negroapple "
+          >
+            Nombre
+          </label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
+            className="bg-gray-200 w-full px-2 py-1 rounded text-black focus:ring-2 focus:ring-gray-500"
             id="name"
             name="name"
             type="text"
@@ -94,13 +113,21 @@ function RegisterForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
+          {formik.touched.name && formik.errors.name && (
+            <p className="text-red-600 text-sm">{formik.errors.name}</p>
+          )}
         </div>
 
         {/* Dirección */}
-        <div className="text-amber-50 flex flex-col">
-          <label htmlFor="address">Dirección</label>
+        <div className="text-negroapple flex flex-col">
+          <label
+            htmlFor="address"
+            className="mb-1 text-sm font-medium text-negroapple "
+          >
+            Dirección
+          </label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
+            className="bg-gray-200 w-full px-2 py-1 rounded text-black focus:ring-2 focus:ring-gray-500"
             id="address"
             name="address"
             type="text"
@@ -108,13 +135,21 @@ function RegisterForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
+          {formik.touched.address && formik.errors.address && (
+            <p className="text-red-600 text-sm">{formik.errors.address}</p>
+          )}
         </div>
 
         {/* Teléfono */}
-        <div className="text-amber-50 flex flex-col">
-          <label htmlFor="phone">Teléfono</label>
+        <div className="text-negroapple flex flex-col">
+          <label
+            htmlFor="phone"
+            className="mb-1 text-sm font-medium text-negroapple "
+          >
+            Teléfono
+          </label>
           <input
-            className="bg-amber-50 w-full px-2 py-1 rounded text-black"
+            className="bg-gray-200 w-full px-2 py-1 rounded text-black focus:ring-2 focus:ring-gray-500"
             id="phone"
             name="phone"
             type="text"
@@ -122,11 +157,14 @@ function RegisterForm() {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
           />
+          {formik.touched.phone && formik.errors.phone && (
+            <p className="text-red-600 text-sm">{formik.errors.phone}</p>
+          )}
         </div>
 
         <button
           type="submit"
-          className="bg-azulapple w-[200px] self-center text-cyan-50 border cursor-pointer rounded-2xl py-2"
+          className="bg-azulapple w-[200px] self-center text-white border cursor-pointer rounded-2xl py-2"
         >
           Registrate
         </button>
