@@ -3,8 +3,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { IUserSession } from "@/interfaces/usersession.interface";
 
-// 1) Tipo de los datos del contexto
-
 interface AuthContextProps {
   dataUser: IUserSession | null;
   setDataUser: (dataUser: IUserSession | null) => void;
@@ -14,7 +12,6 @@ interface AuthContextProps {
 
 const AUTH_KEY = "userSession";
 
-// 2) Contexto (valor real en tiempo de ejecución)
 export const AuthContext = createContext<AuthContextProps>({
   dataUser: null,
   setDataUser: () => {},
@@ -22,17 +19,14 @@ export const AuthContext = createContext<AuthContextProps>({
   isLoadingUser: true,
 });
 
-// 3) Props del provider
 interface AuthProviderProps {
   children: React.ReactNode;
 }
 
-// 4) Provider
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const [dataUser, setDataUser] = useState<IUserSession | null>(null);
   const [isLoadingUser, setIsLoadingUser] = useState(true);
 
-  // Guardar sesión en localStorage cuando cambia
   useEffect(() => {
     try {
       const userdata = localStorage.getItem(AUTH_KEY);
@@ -48,7 +42,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   }, []);
 
-  
   useEffect(() => {
     if (dataUser) {
       localStorage.setItem(AUTH_KEY, JSON.stringify(dataUser));
@@ -71,5 +64,4 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
 };
 
-// 6) Hook de acceso
 export const useAuth = () => useContext(AuthContext);

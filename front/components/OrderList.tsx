@@ -37,7 +37,7 @@ function OrderList() {
 
   return (
     <div>
-      <h2>Mis Ordenes</h2>
+      <h2>Mis Ordenes🧾</h2>
       {error && (
         <div>
           <p>{error}</p>

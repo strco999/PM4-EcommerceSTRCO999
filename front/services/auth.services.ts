@@ -1,5 +1,7 @@
 import { ILoginFormValues } from "@/components/loginform/loginSchema";
 import { IRegisterFormValues } from "@/components/registerform/registerSchema";
+import { showToast } from "nextjs-toast-notify";
+
 
 const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -15,7 +17,15 @@ export const registerUser = async (userData: IRegisterFormValues) => {
     if (responseRegister.ok) {
       return responseRegister.json();
     } else {
-      alert("Registro Fallido❌");
+      // alert("Registro Fallido❌");
+      showToast.error("¡Registro Fallido!", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
       throw new Error("Registro Fallido");
     }
   } catch (error) {
@@ -35,7 +45,15 @@ export const loginUser = async (userData: ILoginFormValues) => {
     if (responseRegister.ok) {
       return responseRegister.json();
     } else {
-      alert("Logueo Fallido❌");
+      // alert("Logueo Fallido❌");
+      showToast.error("¡Datos incorrectos!", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
       throw new Error("Logueo Fallido");
     }
   } catch (error) {

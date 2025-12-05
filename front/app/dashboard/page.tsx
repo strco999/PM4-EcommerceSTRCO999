@@ -44,8 +44,8 @@ export default function DashboardPage() {
         <hr className="border-gray-300" />
 
         <Field label="Nombre" value={user.name} />
-        <Field label="Dirección" value={user.address ?? "No registrada"} />
-        <Field label="Teléfono" value={user.phone ?? "No registrado"} />
+        <Field label="Dirección📍" value={user.address ?? "No registrada"} />
+        <Field label="Teléfono☎️" value={user.phone ?? "No registrado"} />
 
         <hr className="border-gray-300" />
 

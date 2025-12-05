@@ -33,12 +33,12 @@ function Navbar() {
           <ul className="flex gap-7 text-sm sm:text-base">
             <Link href="/">Home🏠</Link>
 
-            {dataUser && <Link href="/dashboard">Dashboard</Link>}
+            {dataUser && <Link href="/dashboard">Dashboard📓</Link>}
             <Link href="/cart">Cart🛒</Link>
 
             {dataUser ? (
               <div className="flex gap-4">
-                <p>🆔{dataUser.user.name}</p>
+                <p>{dataUser.user.name}🆔</p>
                 <button
                   className="cursor-pointer hover:underline text-red-600 "
                   onClick={handleLogout}
