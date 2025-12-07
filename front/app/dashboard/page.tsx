@@ -1,19 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { redirect } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import OrderList from "@/components/OrderList";
 
 export default function DashboardPage() {
   const { dataUser, isLoadingUser } = useAuth();
-  const router = useRouter();
 
   useEffect(() => {
     if (!isLoadingUser && !dataUser) {
-      router.push("/login");
+      redirect("/");
     }
-  }, [dataUser, isLoadingUser, router]);
+  }, [dataUser, isLoadingUser]);
 
   if (isLoadingUser) {
     return (
@@ -24,7 +23,6 @@ export default function DashboardPage() {
   }
 
   if (!dataUser) {
-    // ya se encargará el useEffect de redirigir
     return null;
   }
 
@@ -33,7 +31,6 @@ export default function DashboardPage() {
   return (
     <div className="w-full min-h-screen flex justify-center items-start bg-white px-4 py-10">
       <div className="w-full max-w-3xl bg-white p-6 sm:p-8 rounded-xl shadow-lg flex flex-col gap-6 border border-gray-200">
-        {/* nombre */}
         <div className="flex items-center gap-4">
           <div className="flex flex-col">
             <h1 className="text-2xl font-bold text-black">Mi Perfil 📧</h1>

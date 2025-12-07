@@ -6,6 +6,7 @@ import { loginUser } from "@/services/auth.services";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { showToast } from "nextjs-toast-notify";
+import Link from "next/link";
 
 function LoginForm() {
   const { setDataUser } = useAuth();
@@ -25,7 +26,6 @@ function LoginForm() {
         icon: "",
         sound: true,
       });
-      // alert("Ingreso Exitoso✅");
 
       router.push("/dashboard");
 

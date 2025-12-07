@@ -2,7 +2,6 @@
 import { useAuth } from "@/context/AuthContext";
 import { getAllOrders } from "@/services/orders.services";
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Order } from "@/interfaces/orders.interface";
 
 function OrderList() {
