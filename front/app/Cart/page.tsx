@@ -7,7 +7,6 @@ import { useAuth } from "@/context/AuthContext";
 import { createOrder } from "@/services/orders.services";
 import { showToast } from "nextjs-toast-notify";
 
-
 function CartPage() {
   const {
     addToCart,
@@ -70,7 +69,6 @@ function CartPage() {
           </p>
         </header>
 
-        {/* Si no hay items */}
         {cartItems.length === 0 ? (
           <div className="shadow-lg rounded-2xl p-6 flex flex-col items-center gap-4">
             <p className="text-black text-center">
@@ -85,7 +83,6 @@ function CartPage() {
           </div>
         ) : (
           <div className=" grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6">
-            {/* Lista de productos */}
             <div className="flex flex-col gap-4">
               {cartItems.map((item) => (
                 <div
@@ -123,7 +120,6 @@ function CartPage() {
               ))}
             </div>
 
-            {/* Resumen */}
             <aside className="bg-white/10 rounded-2xl p-5 flex flex-col gap-4 h-fit shadow-lg">
               <h2 className="text-lg font-semibold text-black">
                 Resumen del pedido

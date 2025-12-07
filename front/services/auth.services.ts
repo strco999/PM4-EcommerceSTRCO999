@@ -45,7 +45,6 @@ export const loginUser = async (userData: ILoginFormValues) => {
     if (responseRegister.ok) {
       return responseRegister.json();
     } else {
-      // alert("Logueo Fallido❌");
       showToast.error("¡Datos incorrectos!", {
         duration: 4000,
         progress: true,

@@ -17,7 +17,7 @@ function Navbar() {
       icon: "",
       sound: true,
     });
-    redirect("/"); // redirige al Home
+    redirect("/"); 
   };
 
   return (

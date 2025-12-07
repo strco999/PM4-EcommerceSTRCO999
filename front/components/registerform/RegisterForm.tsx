@@ -28,7 +28,6 @@ function RegisterForm() {
         onSubmit={formik.handleSubmit}
         className="flex flex-col w-full max-w-md items-stretch gap-6  p-6 rounded-2xl shadow-lg"
       >
-        {/* Email */}
         <div className="text-negroapple flex flex-col">
           <label
             htmlFor="email"
@@ -50,7 +49,6 @@ function RegisterForm() {
           )}
         </div>
 
-        {/* Password */}
         <div className="text-negroapple flex flex-col">
           <label
             htmlFor="password"
@@ -72,7 +70,6 @@ function RegisterForm() {
           )}
         </div>
 
-        {/* Confirm Password */}
         <div className="text-negroapple flex flex-col">
           <label
             htmlFor="confirmPassword"
@@ -96,7 +93,6 @@ function RegisterForm() {
           )}
         </div>
 
-        {/* Nombre */}
         <div className="text-negroapple flex flex-col">
           <label
             htmlFor="name"
@@ -118,7 +114,6 @@ function RegisterForm() {
           )}
         </div>
 
-        {/* Dirección */}
         <div className="text-negroapple flex flex-col">
           <label
             htmlFor="address"
@@ -140,7 +135,6 @@ function RegisterForm() {
           )}
         </div>
 
-        {/* Teléfono */}
         <div className="text-negroapple flex flex-col">
           <label
             htmlFor="phone"

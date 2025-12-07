@@ -5,7 +5,6 @@ import { createContext, useEffect, useState, useContext } from "react";
 import { useAuth } from "./AuthContext";
 import { showToast } from "nextjs-toast-notify";
 
-
 interface CartContextProps {
   cartItems: IProduct[];
   addToCart: (product: IProduct) => void;
@@ -35,7 +34,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [initialized, setInitialized] = useState(false);
   const { dataUser } = useAuth();
 
-  // 1️⃣ Leer carrito al montar (solo una vez)
   useEffect(() => {
     if (typeof window !== "undefined" && window.localStorage) {
       const cartdata = localStorage.getItem("cart");
@@ -51,7 +49,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setInitialized(true);
   }, []);
 
-  // 2️⃣ Guardar carrito en localStorage cuando cambie (solo después de inicializar)
   useEffect(() => {
     if (!initialized) return;
 
@@ -62,11 +59,9 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     }
   }, [cartItems, initialized]);
 
-  // 3️⃣ Vaciar carrito al hacer logout (cuando dataUser pasa a null)
   useEffect(() => {
     if (!initialized) return;
 
-    // Si NO hay usuario logueado, vaciamos carrito y localStorage
     if (!dataUser) {
       setCartItems([]);
       if (typeof window !== "undefined" && window.localStorage) {
@@ -77,7 +72,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
   const addToCart = (product: IProduct) => {
     if (!dataUser) {
-      // alert("Debes iniciar sesion❌");
       showToast.warning("¡Debes iniciar sesion!", {
         duration: 4000,
         progress: true,
@@ -91,7 +85,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
     const productExist = cartItems.some((item) => item.id === product.id);
     if (productExist) {
-      // alert("Ya tienes este item en el carro de compras");
       showToast.error("¡Ya tienes este item en el carro de compras!", {
         duration: 4000,
         progress: true,
@@ -102,7 +95,6 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
       });
       return;
     } else {
-      // alert("Producto agregado al carrito 🛒");
       showToast.success("¡Producto agregado al carrito! 🛒", {
         duration: 4000,
         progress: true,
