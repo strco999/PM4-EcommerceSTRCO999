@@ -1,14 +1,15 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
-import { redirect} from "next/navigation";
+import { useRouter } from "next/navigation";
 import { showToast } from "nextjs-toast-notify";
 
 function Navbar() {
   const { dataUser, logout } = useAuth();
+  const router = useRouter();
 
   const handleLogout = () => {
-    logout(); 
+    logout();
     showToast.warning("¡Salida Exitosa!", {
       duration: 4000,
       progress: true,
@@ -17,7 +18,7 @@ function Navbar() {
       icon: "",
       sound: true,
     });
-    redirect("/"); 
+    router.push("/");
   };
 
   return (
@@ -32,6 +33,11 @@ function Navbar() {
             <Link href="/">Home🏠</Link>
 
             {dataUser && <Link href="/dashboard">Dashboard📓</Link>}
+
+            {dataUser && <Link href="/perfil">Perfil</Link>}
+
+
+
             <Link href="/cart">Cart🛒</Link>
 
             {dataUser ? (

@@ -2,7 +2,6 @@ import { ILoginFormValues } from "@/components/loginform/loginSchema";
 import { IRegisterFormValues } from "@/components/registerform/registerSchema";
 import { showToast } from "nextjs-toast-notify";
 
-
 const APIURL = process.env.NEXT_PUBLIC_API_URL;
 
 export const registerUser = async (userData: IRegisterFormValues) => {
@@ -17,8 +16,7 @@ export const registerUser = async (userData: IRegisterFormValues) => {
     if (responseRegister.ok) {
       return responseRegister.json();
     } else {
-      // alert("Registro Fallido❌");
-      showToast.error("¡Registro Fallido!", {
+      showToast.error("¡Nuevo Registro Fallido, Usuario Ya Existe!", {
         duration: 4000,
         progress: true,
         position: "top-center",
@@ -26,7 +24,7 @@ export const registerUser = async (userData: IRegisterFormValues) => {
         icon: "",
         sound: true,
       });
-      throw new Error("Registro Fallido");
+      throw new Error("Nuevo Registro Fallido, Usuario Ya Existe");
     }
   } catch (error) {
     throw new Error(error as string);

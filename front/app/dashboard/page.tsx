@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect } from "react";
-import { redirect } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import OrderList from "@/components/OrderList";
+import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
   const { dataUser, isLoadingUser } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     if (!isLoadingUser && !dataUser) {
-      redirect("/");
+      router.push("/");
     }
   }, [dataUser, isLoadingUser]);
 

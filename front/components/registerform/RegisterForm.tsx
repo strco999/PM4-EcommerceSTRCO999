@@ -7,6 +7,7 @@ import {
 } from "./registerSchema";
 import { registerUser } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
+import { showToast } from "nextjs-toast-notify";
 
 function RegisterForm() {
   const router = useRouter();
@@ -16,7 +17,14 @@ function RegisterForm() {
     validationSchema: registerValidationSchema,
     onSubmit: async (values, { resetForm }) => {
       const responseRegister = await registerUser(values);
-      alert("Usuario Registrado");
+      showToast.info("¡El Registro se realizó con éxito!", {
+        duration: 4000,
+        progress: true,
+        position: "top-center",
+        transition: "popUp",
+        icon: "",
+        sound: true,
+      });
       router.push("/login");
       resetForm();
     },
@@ -158,7 +166,7 @@ function RegisterForm() {
 
         <button
           type="submit"
-          className="bg-azulapple w-[200px] self-center text-white border cursor-pointer rounded-2xl py-2"
+          className="bg-black w-[200px] self-center text-white border cursor-pointer rounded-2xl py-2"
         >
           Registrate
         </button>
