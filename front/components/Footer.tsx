@@ -5,7 +5,7 @@ function Footer() {
     <footer className="w-full bg-black text-white border-t border-neutral-800">
       <div className="w-full mx-auto max-w-7xl p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
         <span className="text-sm text-gray-300 sm:text-center">
-          Copyright © 2025{" "}
+          Copyright © 2026{" "}
           <Link href="#" className="hover:underline font-medium">
             STRCO999™
           </Link>
