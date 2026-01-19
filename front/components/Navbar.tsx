@@ -30,31 +30,27 @@ function Navbar() {
       <section>
         <nav>
           <ul className="flex gap-7 text-sm sm:text-base">
-            <Link href="/">Home🏠</Link>
+            <Link href="/">Home</Link>
 
-            {dataUser && <Link href="/dashboard">Dashboard📓</Link>}
+            {dataUser && <Link href="/dashboard">Dashboard</Link>}
 
-            {dataUser && <Link href="/perfil">Perfil</Link>}
-
-
-
-            <Link href="/cart">Cart🛒</Link>
+            <Link href="/cart">Cart</Link>
 
             {dataUser ? (
               <div className="flex gap-4">
-                <p>{dataUser.user.name}🆔</p>
+                <p>{dataUser.user.name}</p>
                 <button
                   className="cursor-pointer hover:underline text-red-600 "
                   onClick={handleLogout}
                 >
                   {" "}
-                  Logout🚪{" "}
+                  Logout{" "}
                 </button>
               </div>
             ) : (
               <div className="flex gap-4">
-                <Link href="/login">Login🔑</Link>
-                <Link href="/register">Register📝</Link>
+                <Link href="/login">Login</Link>
+                <Link href="/register">Register</Link>
               </div>
             )}
           </ul>
