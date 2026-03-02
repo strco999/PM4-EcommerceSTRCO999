@@ -11,6 +11,10 @@ function OrderList() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const isPremium = orders.length > 2;
+  const isRegular = orders.length <= 2;
+
+
   useEffect(() => {
     const fetchOrders = async () => {
       if (!dataUser?.token) {
@@ -23,6 +27,7 @@ function OrderList() {
       try {
         const ordersResponse = await getAllOrders(dataUser?.token);
         setOrders(ordersResponse);
+
       } catch (error) {
         console.error("Este es el error:", error);
         setError(`Ups! ${error}`);
@@ -36,7 +41,11 @@ function OrderList() {
 
   return (
     <div>
-      <h2>Mis Ordenes🧾</h2>
+      <h2>Mis Ordenes</h2>
+
+      {isPremium && <p>USUARIO PREMIUM</p>}
+      {isRegular && <p>USUARIO REGULAR</p>}
+
       {error && (
         <div>
           <p>{error}</p>

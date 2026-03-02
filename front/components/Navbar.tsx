@@ -1,5 +1,7 @@
 "use client";
 import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/context/CartContext";
+import { Span } from "next/dist/trace";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { showToast } from "nextjs-toast-notify";
@@ -7,6 +9,8 @@ import { showToast } from "nextjs-toast-notify";
 function Navbar() {
   const { dataUser, logout } = useAuth();
   const router = useRouter();
+
+  const { cartItems } = useCart();
 
   const handleLogout = () => {
     logout();

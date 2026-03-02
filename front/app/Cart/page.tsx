@@ -26,7 +26,6 @@ function CartPage() {
     }
     await createOrder(getIdItems(), dataUser.token);
     clearCart();
-    // alert("Compra Exitosa✅");
     showToast.success("¡Compra Exitosa!", {
       duration: 4000,
       progress: true,
@@ -47,7 +46,7 @@ function CartPage() {
   const handleClear = () => {
     if (cartItems.length === 0) return;
     const confirmClear = window.confirm(
-      "¿Seguro que quieres vaciar el carrito?"
+      "¿Seguro que quieres vaciar el carrito?",
     );
     if (confirmClear) clearCart();
   };
@@ -55,7 +54,6 @@ function CartPage() {
   return (
     <div className="w-full min-h-screen bg-white flex justify-center items-start px-4 py-10">
       <section className=" w-full max-w-5xl flex flex-col gap-8">
-        {/* Título */}
         <header className="flex flex-col gap-2">
           <h1 className="text-2xl sm:text-3xl font-bold text-black">
             Carrito de Compras🛒
@@ -139,6 +137,7 @@ function CartPage() {
 
               <div className=" flex justify-between items-center text-black font-semibold text-base">
                 <span>Total 💳</span>
+
                 <span>
                   COP{" "}
                   {total.toLocaleString("es-CO", {
